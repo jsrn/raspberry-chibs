@@ -23,6 +23,10 @@ class Weather
     (todays_weather["data"].first["precipProbability"] * 100).round
   end
 
+  def might_rain_today?
+    percentage_chance_rain_today > 0
+  end
+
   private
 
   def todays_weather

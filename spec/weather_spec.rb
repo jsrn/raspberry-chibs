@@ -7,15 +7,9 @@ describe Weather do
     end
   end
 
-  describe ".will_rain_today?" do
+  describe ".might_rain_today?" do
     it "will rain today" do
-      puts Weather.new.will_rain_today?
-    end
-  end
-
-  describe ".weather_from_api" do
-    it "returns json" do
-      expect(Weather.new.weather_from_api.is_a? Hash).to eql(true)
+      Weather.new.might_rain_today?
     end
   end
 end
