@@ -3,8 +3,11 @@ require "pry"
 
 class Weather
   def now
-    puts "It's #{current_temperature} degrees with a high of #{max_temperature} and a low of #{min_temperature}"
-    puts "There is a #{percentage_chance_rain_today}% chance of rain today"
+    %(
+      It's #{current_temperature} degrees with a high of #{max_temperature}
+      and a low of #{min_temperature}. There is a #{percentage_chance_rain_today} percent
+      chance of rain today
+    )
   end
 
   def min_temperature
