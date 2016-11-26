@@ -3,11 +3,15 @@
 <script>
 if (annyang) {
 	var commands = {
-		'weather': function() {
-			$.get("/weather");
-		},
-		'schedule': function() {
-			$.get("/schedule");
+		"tell me the *thing": function(thing) {
+			switch(thing) {
+				case "weather":
+					$.get("/weather");
+					break;
+				case "schedule":
+					$.get("/schedule");
+					break;
+			}
 		}
 	};
 
