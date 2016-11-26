@@ -53,11 +53,15 @@ class Calendar
                                    order_by: 'startTime',
                                    time_min: Time.now.iso8601)
 
-    puts "Upcoming events:"
-    puts "No upcoming events found" if response.items.empty?
-    response.items.each do |event|
-      start = event.start.date || event.start.date_time.strftime("%m/%e/%y %H:%M")
-      puts "- #{event.summary} (#{start})"
+    return "You don't have anything planned today" if response.items.empty?
+
+    output = ""
+    response.items.each_with_index do |event|
+      start = event.start.date_time.strftime("%l:%M")
+      output << "#{event.summary} at #{Speech.time_to_text(start)}"
+      puts "- #{event.summary} (#{Speech.time_to_text(start)})"
     end
+
+    output
   end
 end
